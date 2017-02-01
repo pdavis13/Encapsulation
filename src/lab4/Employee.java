@@ -50,6 +50,8 @@ public class Employee {
     private String cubeId;
     private Date orientationDate;
     private EmployeeReportService reportService;
+    private Department department;
+    private HumanResources humanResources;
 
     /*
         Notice we force certain mandatory properties by using a custom
@@ -61,6 +63,8 @@ public class Employee {
         setFirstName(firstName);
         setLastName(lastName);
         setSsn(ssn);
+        department = new Department();
+        humanResources = new HumanResources();
         reportService = new EmployeeReportService();
     }
     
@@ -98,7 +102,7 @@ public class Employee {
     // and should only be called as part of the larger task of:
     // doFirtTimeOrientation()
     private void meetWithHrForBenefitAndSalryInfo() {
-        metWithHr = true;
+        humanResources.meetWithHR(this);
         reportService.addData(firstName + " " + lastName + " met with Hr on "
             + getFormattedDate() + CRLF);
     }
@@ -109,7 +113,7 @@ public class Employee {
     // and should only be called as part of the larger task of:
     // doFirtTimeOrientation()
     private void meetDepartmentStaff() {
-        metDeptStaff = true;
+        department.meetDepartment(this);
         reportService.addData(firstName + " " + lastName + " met with Dept. Staff on "
             + getFormattedDate() + CRLF);
     }
@@ -118,7 +122,7 @@ public class Employee {
     // policies may change that this method may need to be called 
     // independently from other classes.
     public void reviewDeptPolicies() {
-        reviewedDeptPolicies = true;
+        department.reviewPolicies(this);
         reportService.addData(firstName + " " + lastName + " reviewed Dept policies on "
             + getFormattedDate() + CRLF);
     }

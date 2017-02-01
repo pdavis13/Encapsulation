@@ -40,8 +40,7 @@ public class Employee {
     // would only do this once, upon being hired.
     public void meetWithHrForBenefitAndSalryInfo() {
         metWithHr = true;
-        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
-        String fmtDate = sdf.format(orientationDate);        
+        String fmtDate = formatDate();      
         System.out.println(firstName + " " + lastName + " met with Hr on "
             + fmtDate);
     }
@@ -50,8 +49,7 @@ public class Employee {
     // would only do this once, upon being hired.:
     public void meetDepartmentStaff() {
         metDeptStaff = true;
-        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
-        String fmtDate = sdf.format(orientationDate);        
+        String fmtDate = formatDate();        
         System.out.println(firstName + " " + lastName + " met with Dept. Staff on "
             + fmtDate);
     }
@@ -61,8 +59,7 @@ public class Employee {
     // independently from other classes.
     public void reviewDeptPolicies() {
         reviewedDeptPolicies = true;
-        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
-        String fmtDate = sdf.format(orientationDate);        
+        String fmtDate = formatDate();        
         System.out.println(firstName + " " + lastName + " reviewed Dept policies on "
             + fmtDate);
     }
@@ -73,10 +70,15 @@ public class Employee {
     public void moveIntoCubicle(String cubeId) {
         this.cubeId = cubeId;
         this.movedIn = true;
-        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
-        String fmtDate = sdf.format(orientationDate);        
+        String fmtDate = formatDate();        
         System.out.println(firstName + " " + lastName + " moved into cubicle "
                 + cubeId + " on " + fmtDate);
+    }
+    
+    private String formatDate(){
+        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
+        String fmtDate = sdf.format(orientationDate);
+        return fmtDate;
     }
 
     public String getFirstName() {
