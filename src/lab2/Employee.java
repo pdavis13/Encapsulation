@@ -36,9 +36,16 @@ public class Employee {
         this.ssn = ssn;
     }
 
+    public void Orientate(String cubeId){
+        meetWithHrForBenefitAndSalryInfo();
+        meetDepartmentStaff();
+        reviewDeptPolicies();
+        moveIntoCubicle(cubeId);
+    }
+    
     // Assume this must be performed first, and assume that an employee
     // would only do this once, upon being hired.
-    public void meetWithHrForBenefitAndSalryInfo() {
+    private void meetWithHrForBenefitAndSalryInfo() {
         metWithHr = true;
         String fmtDate = getFormatDate();      
         System.out.println(firstName + " " + lastName + " met with Hr on "
@@ -47,7 +54,7 @@ public class Employee {
 
     // Assume this must be performed second, and assume that an employee
     // would only do this once, upon being hired.:
-    public void meetDepartmentStaff() {
+    private void meetDepartmentStaff() {
         metDeptStaff = true;
         String fmtDate = getFormatDate();        
         System.out.println(firstName + " " + lastName + " met with Dept. Staff on "
