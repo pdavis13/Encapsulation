@@ -11,11 +11,13 @@ package lab4;
  */
 public class Startup {
     public static void main(String[] args) {
-
-        Employee employee = new Employee("Peter","Piper","333-33-3333");
+        Department sales = new Department("Sales");
+        Department manufacturing = new Department("Manufacturing");
+        Department janitorial = new Department("Janitorial");
         
-        employee.doFirstTimeOrientation("A101");
-        employee.getReportService().outputReport();
+        HumanResources hr = new HumanResources();
+        
+        hr.hireEmployee("Peter","Piper","333-33-3333",hr);
     }
     
     

@@ -11,9 +11,16 @@ import java.util.ArrayList;
  *
  * @author pdavis13
  */
-public class HumanResources {
-
-    public void meetWithHR(Employee employee){
-        employee.setMetWithHr(true);
+public class HumanResources extends Department{
+    
+    public HumanResources(){
+        super("Human Resources");
+    }
+    
+    public void hireEmployee(String firstName, String lastName, String ssn, Department department){
+        Employee e = new Employee(firstName, lastName, ssn, department);
+        department.gainEmployee(e);
+        e.doFirstTimeOrientation("A" + (int)(Math.random()*1000));
+        e.getReportService().outputReport();
     }
 }

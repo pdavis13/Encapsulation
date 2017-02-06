@@ -57,14 +57,13 @@ public class Employee {
         Notice we force certain mandatory properties by using a custom
         constructor. But we use the setter method to peform validation.
     */
-    public Employee(String firstName, String lastName, String ssn) {
+    public Employee(String firstName, String lastName, String ssn, Department department) {
         // Using setter method guarantees validation will be performed
         // Ignore the warning messages for now. Will be explained later
         setFirstName(firstName);
         setLastName(lastName);
         setSsn(ssn);
-        department = new Department();
-        humanResources = new HumanResources();
+        this.department = department;
         reportService = new EmployeeReportService();
     }
     
@@ -102,7 +101,6 @@ public class Employee {
     // and should only be called as part of the larger task of:
     // doFirtTimeOrientation()
     private void meetWithHrForBenefitAndSalryInfo() {
-        humanResources.meetWithHR(this);
         reportService.addData(firstName + " " + lastName + " met with Hr on "
             + getFormattedDate() + CRLF);
     }
